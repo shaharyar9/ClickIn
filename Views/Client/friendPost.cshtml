@@ -6,7 +6,7 @@
 @model IEnumerable<postBo>
 
 <body style="background: repeat; background-image: url(/Content/img6.jpg)">
-    <div class="col-lg-10">
+    <div class="col-lg-8">
     <div style="position: relative; top: 0">
          @{
              User u = (User)ViewBag.host;
@@ -14,7 +14,7 @@
         <img src="/Content/@u.userId/@u.profile"  style="position: absolute; top: 60%; left:30px" height="150" width="200"/>
        
            
-         <h1 style="position: absolute; top: 80%; left: 22%;color:white">@u.fname @u.lname</h1>
+         <h1 style="position: absolute; top: 80%; left: 35%;color:white">@u.fname @u.lname</h1>
         
          }
 
@@ -22,20 +22,20 @@
          
     </div>
         
-         <ul class=" nav navbar-nav navbar navbar-inverse">
+        <ul class=" nav navbar-nav navbar navbar-inverse" style="background-color:white">
             
-             <li>
-                 <a href="friendPicture?name=@u.userId" class = "hvr-bounce-to-bottom">Picture</a>
-                
-             </li>
-             <li>
-                 <a href="friendPost?name=@u.userId" class = "hvr-bounce-to-bottom">Post</a>                
-             </li>  
-             
-             <li>
-                 <a href="friendVideo?name=@u.userId" class = "hvr-bounce-to-bottom">Post</a>                
-             </li>          
-            </ul>
+            <li>
+                <a href="friendPicture?name=@u.userId" class = "hvr-bounce-to-bottom">Picture</a>
+
+            </li>
+            <li>
+                <a href="friendPost?name=@u.userId" class = "hvr-bounce-to-bottom">Post</a>
+            </li>
+
+            <li>
+                <a href="friendVideo?name=@u.userId" class = "hvr-bounce-to-bottom">Video</a>
+            </li>
+        </ul>
         <br />
             
     </div>
@@ -47,7 +47,7 @@
     
     <div class="col-lg-8" id="div_@b.Id" style="margin-left:6%">
          <br />
-        <div class="col-lg-6  hvr-bounce-in" style="border:solid;background-color:white">
+        <div class="col-lg-6  hvr-bounce-in" style="background-color:white">
             <div  style="padding-top:2%"> 
                 <img src="/Content/@b.User/@b.Profile" height="30" class="img-circle"/>
                     <a href="#" class="">@b.Fname @b.Lname</a>   

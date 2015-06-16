@@ -15,7 +15,7 @@
             <div class="col-lg-7" id="div1_@count" style="background-color:white">
                 <br />
                 <img src="~/Content/@u.userId/@u.profile" alt="Picture no available" height="150" width="150"/>
-                <p style="color: black"><a href="friendPicture?name-@u.userId">@u.fname @u.lname</a></p>
+                <p style="color: black"><a href="friendPicture?name=@u.userId">@u.fname @u.lname</a></p>
                 @{                
                  
                     <input type="button" value="Decline" class="btn btn-danger  hvr-bounce-in" onClick="deleteRequest('@u.userId    ',@count)"/>
