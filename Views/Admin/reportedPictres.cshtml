@@ -1,0 +1,34 @@
+﻿@{Layout = "~/Views/Shared/adminBar.cshtml";}
+
+@using ClickInFinal.Models
+@model IEnumerable<imageBo>
+
+
+
+<body style="background: repeat; background-image: url(/Content/img6.jpg)">
+    <h1 style="margin-left:30%;color:white">Reported Pictures</h1>
+  
+    
+        @foreach(imageBo b in Model)
+        {
+        <div  class="col-lg-2" id="div1_@b.Id"></div>
+        <div class="col-lg-8" id="div_@b.Id" style="margin-left:10%">
+            <br />
+            <div class="col-lg-6 navbar-default " style="border: solid">
+                <p style="color:darkblue">Posted By:@b.Fname @b.Lname</p>
+                <div style="padding-top: 2%">
+                    <img src="~/Content/@b.User/@b.ImgPath" height="200" width="300" />
+                    <br />
+                    <br />
+                    <input type="button" class="btn btn-success pull-right hvr-bounce-in" value="Clear" onclick="clearPicture(@b.Id)"/>
+                    <input type="button" class="btn btn-danger pull-rigth hvr-bounce-in" value="Delete"  onclick="deletePicture(@b.Id)"/>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+            <br />
+        }
+
+</body>
+

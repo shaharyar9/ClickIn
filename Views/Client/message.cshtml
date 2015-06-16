@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ClickInFinal.Models
+@model message
+
+
+<body style="background: repeat; background-image: url(/Content/img6.jpg)">
+
+
+
+    <div class="col-lg-8 " style="padding-top: 3%; color: black; background-color: white; padding-right: 0.5%;margin-left:1%">
+        
+        <h1 style="color:red">@ViewBag.notSent</h1>
+        <h1>New Message</h1>
+        <div class="col-lg-2">
+            <br />
+            @Html.LabelFor(m => m.receiver, "Recipient")
+            <br />
+            <br />
+            <br />
+            @Html.LabelFor(m => m.subject, "Subject")
+            <br />
+            <br />
+            <br />
+            @Html.LabelFor(m => m.description, "Message")
+            <br />
+            <br />
+        </div>
+        <div>
+
+            @using (Html.BeginForm("sendMessage", "Client", FormMethod.Post))
+            {
+                <br />           
+                
+                @Html.TextBoxFor(m => m.receiver, new { @class = "btn", style = "border: solid; font-size: large", type = "email", required = "required" })
+                <br />
+                <br />
+                @Html.TextBoxFor(m => m.subject, new { @class = "btn", style = "border: solid; font-size: large", required = "required" })
+                <br />
+                <br /> 
+                <!--<textarea name="description" rows="15" cols="100" style="border: solid"></textarea> -->
+                @Html.TextAreaFor(m => m.description, new { @class = "btn", style = "border: solid; font-size: large", required = "required", rows = "15", cols = "70" })
+                <div class="col-lg-2"></div>   
+                <div class="right">
+                    <input type="submit" value="Send" class="btn btn-lg btn-primary" style="border: solid" />
+                </div> 
+                <br />
+                <br />         
+            }
+            
+        </div>
+
+
+    </div>
+</body>
+
+
+

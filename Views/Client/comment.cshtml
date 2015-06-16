@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+@using ClickInFinal.Models
+@model IEnumerable<Comment>
+<body>
+    
+   
+        @foreach(Comment c in Model)
+        {
+       <img src="/Content/@c.Username/@c.PicPath" height="50" width="50" class="img-circle"  />
+                       <a href="#" >@c.Fname @c.Lname</a>
+                       <p style="color:black">@c.Comment1</p>
+                       <br /> 
+        }
+        
+    
+ 
+    </body>        

@@ -1,0 +1,158 @@
+﻿
+
+@{Layout = "~/Views/Shared/adminBar.cshtml";}
+
+@using ClickInFinal.Models
+@model AdminInfo
+
+<body style="background: repeat; background-image: url(/Content/img6.jpg)">
+
+   <div id="wrapper">       <!-- Navigation -->
+        
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                               
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">@Model.Totaluser</div>
+                                    <div>Total User!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Users</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">@Model.TotalMessage</div>
+                                    <div>Total Message</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Messages</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">@Model.TotalPictures</div>
+                                    <div>Total Pictures!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Pictures</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-10">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">@Model.TotalPictureLikes</div>
+                                    <div>Total likes on Pictures!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Picture Likes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+			<div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">@Model.TotalPost</div>
+                                    <div>Total Posts!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Posts</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">@Model.TotalPostLikes</div>
+                                    <div>Total Likes on Post</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Post Likes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                   
+
+			
+
+
+
+
+
+
+
+            </div>             
+       </div>
+       </div>
+</body>
+

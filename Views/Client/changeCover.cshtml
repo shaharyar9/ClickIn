@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body style="background: repeat; background-image: url(/Content/img6.jpg)">
+
+
+    <hr />
+    <br />
+    <br />
+    <div class="col-lg-1"></div>
+
+    <div class="col-lg-4" style="padding-top: 3%; color: black; background-color: white; padding-right: 0.5%">
+        <h1>Upload Cover</h1>
+        <br />
+         <p>Only jpg and png format is allowed</p>
+        <br />
+        <div class="col-lg-8">
+            @using (Html.BeginForm("saveCover", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input name="uploadFile" type="file" class="btn btn-lg btn-success" />
+                <br />
+                <br />
+                <input type="submit" value="Upload Picture" class="btn btn-lg btn-primary" />
+                <br />
+                <br />
+            }
+        </div>
+        <br />
+        <br />
+
+
+    </div>
+
+
+
+</body>
+
+

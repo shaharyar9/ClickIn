@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using ClickInFinal.Models
+@model IEnumerable<User>
+
+<body class="btn-link navbar-default" style="background: repeat; background-image: url(/Content/img6.jpg)">
+    <div class="col-lg-6">
+        <h1 style="color:white">Add Friends to your Friends Circle</h1>
+        @{
+            var count = 0;
+            foreach (User u in Model)
+            { <div class="col-lg-3" id="div_@count"></div>
+            <div class="col-lg-7" id="div1_@count" style="background-color:white">
+                <br />
+                <img src="~/Content/@u.userId/@u.profile" alt="Picture no available" height="150" width="150"/>
+                <p style="color: black"><a href="friendPicture?name-@u.userId">@u.fname @u.lname</a></p>
+                @{                
+                 
+                    <input type="button" value="Decline" class="btn btn-danger  hvr-bounce-in" onClick="deleteRequest('@u.userId    ',@count)"/>
+                    <input type="button" value="Accept" class="btn btn-success pull-right hvr-bounce-in" onClick="acceptRequest('@u.userId    ',@count)"/>
+                    <br /> 
+                    <br />
+                count++;
+                }
+
+
+            </div>
+            <br />
+            }
+        }
+
+    </div>
+</body>

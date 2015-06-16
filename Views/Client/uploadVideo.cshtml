@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <body class="navbar-default" style="background: repeat; background-image: url(/Content/img6.jpg)">
+    
+    
+        <br />
+        <br />
+    <div class="col-lg-1"></div>
+    
+    <div class="col-lg-4" style="padding-top:3% ;color:black;background-color:white;padding-right:0.5%" >
+
+      
+         <div class="col-lg-8">
+             
+             <h1>Upload Video</h1>
+             <br />
+              <p>Only MP4 format is allowed</p>
+             <br />
+             @using (Html.BeginForm("saveVideo", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input name="uploadFile" type="file" class="btn btn-lg btn-success"/>
+                 <br />
+                 <br />
+    <input type="submit" value="Upload Picture" Class="btn btn-lg btn-primary"/>
+                 <br />
+                 <br />
+}
+             </div> 
+                 <br />
+                 <br />         
+           
+             
+       </div>
+        
+    
+ 
+</body>
+
+

@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/mystyle.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/Content/hover-min.css" rel="stylesheet" />
+
+
+
+    <style type="text/css">
+        .fancybox-custom .fancybox-skin {
+            box-shadow: 0 0 50px #222;
+        }
+
+        body {
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            /* This is basic - uses default settings */
+
+            $("a#single_image").fancybox();
+
+            /* Using custom settings */
+
+            $("a#inline").fancybox({
+                'hideOnContentClick': true
+            });
+
+            /* Apply fancybox to multiple items */
+
+            $("a.group").fancybox({
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic',
+                'speedIn': 600,
+                'speedOut': 200,
+                'overlayShow': false
+            });
+
+        });
+    </script>
+    
+
+</head>
+<body class="navbar-default">
+    <nav class="nav navbar-fixed-top " role="navigation" style="background-color:white">
+        <div class="nav navbar-header " style="padding-left: 5%; padding-top: 0.5%">
+            <h1 style="color: black; font-family: Papyrus">ClickIn</h1>
+        </div>
+        <div class="pull-right" style="padding-right: 15px; padding-top: 1.5%">
+
+            <a href="/LogIn/logOut">
+                <input type="submit" class="btn btn-danger hvr-bounce-in" value="SIGN OUT" style="padding-top: 1.5%" /></a>
+        </div>
+        <div>
+            <ul class=" nav navbar-nav pull-right navbar" style="padding-top: 25px; padding-right: 5%">             
+
+                
+                <li>@Html.ActionLink("Picture", "home", null, new { @class = "hvr-bounce-to-top" })</li>               
+                <li>@Html.ActionLink("Posts", "post", null, new { @class = "hvr-bounce-to-top" })</li>  
+                <li>@Html.ActionLink("Video", "videos", null, new { @class = "hvr-bounce-to-top" })</li>  
+                 <li>@Html.ActionLink("Profile", "profile", null, new { @class = "hvr-bounce-to-top" })</li>          
+               <li>@Html.ActionLink("Add friends", "People", null, new { @class = "hvr-bounce-to-top" })</li>
+               <li>@Html.ActionLink("View Friends", "seeFriends", null, new { @class = "hvr-bounce-to-top" })</li>
+             <li>@Html.ActionLink("View Request", "request", null, new { @class = "hvr-bounce-to-top" })</li>
+             <li>@Html.ActionLink("Account Setting", "accountSetting", null, new { @class = "hvr-bounce-to-top" })</li>               
+               
+            </ul>
+            </div>
+
+    </nav>
+    <br />
+    
+  
+    <div  class="col-lg-2 navbar-inverse" style="background-color:white;margin-left:1%" >
+                <br />            
+                <p style="color:blue; font-family: Papyrus;margin-left:5%">Messgae Portal</p>         
+        
+       
+        <a href="/Client/message" style="margin-left:2%">
+            <input type="submit" value="Compose" class="btn btn-success hvr-bounce-in" /></a>
+
+        <ul class="nav navbar">
+            <li>@Html.ActionLink("Inbox", "inbox", null, new { @class = "hvr-bounce-to-right" })</li>
+            <li>@Html.ActionLink("Sent Mails", "sentMail", null, new { @class = "hvr-bounce-to-right" })</li>
+        </ul>
+
+             
+           
+        
+    </div>
+       
+       
+              
+   
+
+    @RenderBody()
+
+   
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+            $('.fancybox').fancybox();
+
+            /*
+			 *  Different effects
+			 */
+
+            // Change title type, overlay closing speed
+            $(".fancybox-effects-a").fancybox({
+                helpers: {
+                    title: {
+                        type: 'outside'
+                    },
+                    overlay: {
+                        speedOut: 0
+                    }
+                }
+            });
+
+            // Disable opening and closing animations, change title type
+            $(".fancybox-effects-b").fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'over'
+                    }
+                }
+            });
+
+            // Set custom style, close if clicked, change title type and overlay color
+            $(".fancybox-effects-c").fancybox({
+                wrapCSS: 'fancybox-custom',
+                closeClick: true,
+
+                openEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    overlay: {
+                        css: {
+                            'background': 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+            });
+
+            // Remove padding, set opening and closing animations, close if clicked and disable overlay
+            $(".fancybox-effects-d").fancybox({
+                padding: 0,
+
+                openEffect: 'elastic',
+                openSpeed: 150,
+
+                closeEffect: 'elastic',
+                closeSpeed: 150,
+
+                closeClick: true,
+
+                helpers: {
+                    overlay: null
+                }
+            });
+
+            /*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+            $('.fancybox-buttons').fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    buttons: {}
+                },
+
+                afterLoad: function () {
+                    this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+                }
+            });
+
+
+            /*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+            $('.fancybox-thumbs').fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+                arrows: false,
+                nextClick: true,
+
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+            });
+
+            /*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+            $('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+				    openEffect: 'none',
+				    closeEffect: 'none',
+				    prevEffect: 'none',
+				    nextEffect: 'none',
+
+				    arrows: false,
+				    helpers: {
+				        media: {},
+				        buttons: {}
+				    }
+				});
+
+            /*
+			 *  Open manually
+			 */
+
+            $("#fancybox-manual-a").click(function () {
+                $.fancybox.open('1_b.jpg');
+            });
+
+            $("#fancybox-manual-b").click(function () {
+                $.fancybox.open({
+                    href: 'iframe.html',
+                    type: 'iframe',
+                    padding: 5
+                });
+            });
+
+            $("#fancybox-manual-c").click(function () {
+                $.fancybox.open([
+					{
+					    href: '1_b.jpg',
+					    title: 'My title'
+					}, {
+					    href: '2_b.jpg',
+					    title: '2nd title'
+					}, {
+					    href: '3_b.jpg'
+					}
+                ], {
+                    helpers: {
+                        thumbs: {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+    </script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script >
+
+        function share(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.open("POST", "share?id=" + id, true);
+            xmlhttp.send();
+            //alert("Picture Shared");
+        }
+
+        function postlike(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    var elem = "post_" + id;
+                    var fader = "btn_" + id;
+                    $('#' + fader).fadeOut('slow');
+                  
+                    document.getElementById(elem).innerHTML = xmlhttp.responseText + "Likes";
+
+                }
+
+            }
+            xmlhttp.open("POST", "homePostLike?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function like(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+            
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    var elem = "count_" + id;
+                    var fader = "btn_" + id;
+                    $('#'+fader).fadeOut('slow');
+                    document.getElementById(elem).innerHTML = xmlhttp.responseText+" Likes";
+                    
+                }
+                
+            }
+            xmlhttp.open("POST", "homeImageLike?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function comment(id) {
+            var elem = "#cmnt_" + id;
+            var com = "#txt_" + id;            
+            var description = $(com).val();
+            $(com).val("")
+          //  alert("comment1" + description);
+            $.post("/Client/comment", { Id: id , Description: description})
+         .done(function (data) {
+             
+             $(elem).html(data);
+         });
+        }
+
+
+        function postComment(id) {
+            var elem = "#cmnt_" + id;
+            var com = "#txt_" + id;
+            var description = $(com).val();
+            $(com).val("")
+            //alert("comment1" + description);
+            $.post("/Client/commentPost", { Id: id, Description: description })
+         .done(function (data) {
+
+             $(elem).html(data);
+         });
+        }
+
+        function reportPost(id)
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                   /* var elem = "count_" + id;
+                    var fader = "btn_" + id;
+                    $('#' + fader).fadeOut('slow');
+                    document.getElementById(elem).innerHTML = xmlhttp.responseText + " Likes";*/
+
+                }
+
+            }
+            xmlhttp.open("POST", "reportPost?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function reportPicture(id) {
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    /* var elem = "count_" + id;
+                     var fader = "btn_" + id;
+                     $('#' + fader).fadeOut('slow');
+                     document.getElementById(elem).innerHTML = xmlhttp.responseText + " Likes";*/
+
+                }
+
+            }
+            xmlhttp.open("POST", "reportPicture?id=" + id, true);
+            xmlhttp.send();
+
+        }
+
+        function deletePost(id) {
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                     var elem = "count_" + id;
+                     var fader = 
+                     $('#' + "div_" + id).fadeOut('slow');
+                     $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "deletePost?id=" + id, true);
+            xmlhttp.send();
+
+        }
+
+        function deletePicture(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                   
+                   
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "deletePicture?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function friendRequest(name,count) {        
+            
+
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    //alert(name);
+                    var div = "div_" + name;
+                    $('#' + "div_" + count).fadeOut('slow');
+                    $('#' + "div1_" + count).fadeOut('slow');
+                }
+
+            }
+            xmlhttp.open("POST", "addFriend?name=" + name, true);
+            xmlhttp.send(); 
+          
+           
+           
+        
+                    
+
+               
+        }
+
+        function acceptRequest(name, count)
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    //alert(name);
+                    var div = "div_" + name;
+                    $('#' + "div_" + count).fadeOut('slow');
+                    $('#' + "div1_" + count).fadeOut('slow');
+                }
+
+            }
+            xmlhttp.open("POST", "AcceptRequest?name=" + name, true);
+            xmlhttp.send();
+        }
+        function deleteRequest(name, count) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    alert(name);
+                    var div = "div_" + name;
+                    $('#' + "div_" + count).fadeOut('slow');
+                    $('#' + "div1_" + count).fadeOut('slow');
+                }
+
+            }
+            xmlhttp.open("POST", "deleteRequest?name=" + name, true);
+            xmlhttp.send();
+        }
+
+        function shareVideo(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.open("POST", "shareVideo?id=" + id, true);
+            xmlhttp.send();
+            alert("Picture Shared");
+        }
+        function videolike(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    var elem = "count_" + id;
+                    var fader = "btn_" + id;
+                    $('#' + fader).fadeOut('slow');
+                    document.getElementById(elem).innerHTML = xmlhttp.responseText + " Likes";
+
+                }
+
+            }
+            xmlhttp.open("POST", "VideoLike?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function videocomment(id) {
+            var elem = "#cmnt_" + id;
+            var com = "#txt_" + id;
+            var description = $(com).val();
+            $(com).val("")
+           // alert("comment1" + description);
+            $.post("/Client/commentVideo", { Id: id, Description: description })
+         .done(function (data) {
+
+             $(elem).html(data);
+         });
+        }
+
+        function reportVideo(id) {
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    /* var elem = "count_" + id;
+                     var fader = "btn_" + id;
+                     $('#' + fader).fadeOut('slow');
+                     document.getElementById(elem).innerHTML = xmlhttp.responseText + " Likes";*/
+
+                }
+
+            }
+            xmlhttp.open("POST", "reportVideo?id=" + id, true);
+            xmlhttp.send();
+
+        }
+
+        function deleteVideo(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+
+
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "deleteVideo?id=" + id, true);
+            xmlhttp.send();
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

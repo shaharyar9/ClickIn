@@ -1,0 +1,33 @@
+﻿@{Layout = "~/Views/Shared/adminBar.cshtml";}
+@using ClickInFinal.Models
+@model IEnumerable<postBo>
+<!DOCTYPE html>
+
+
+<body style="background: repeat; background-image: url(/Content/img6.jpg)">
+ 
+    <h1 style="margin-left:30%;color:white">Repoted Post</h1>
+    
+        @foreach(postBo p in Model )
+        {
+        <div class="col-lg-2" id="div1_@p.Id"></div>
+        <div class="col-lg-8" id="div_@p.Id" style="margin-left:12%">
+            <br />
+            <div class="col-lg-6 navbar-default " style="border: solid">
+                <p style="color:darkblue">Posted by:@p.Fname @p.Lname</p>
+                <div style="padding-top: 2%">
+                    <p>@p.Status</p>
+                   
+                    <br />
+                    <input type="button" class="btn btn-success pull-right hvr-bounce-in" value="Clear" onclick="deletePost(@p.Id)"/>
+                    <input type="button" class="btn btn-danger pull-rigth hvr-bounce-in" value="Delete" onclick="clearPost(@p.Id)"/>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+        }
+
+   
+</body>
+

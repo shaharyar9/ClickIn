@@ -1,0 +1,30 @@
+﻿@using ClickInFinal.Models
+@model message
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    
+    <body class="navbar-default" style="background: repeat; background-image: url(/Content/img6.jpg)">
+    
+   
+    
+    <div class="col-lg-8" style="padding-top:3%;margin-left:2% ;color:black;padding-right:0.5%;border:solid;background-color:white" >
+       
+        <div class="col-lg-8"> 
+             
+            <h1>Subject:<b>@Model.subject</b></h1> 
+            <h1>Sender:<b>@Model.sender</b></h1> 
+             <h1>Receiver:<b>@Model.receiver</b></h1> 
+          
+             <h1>Description:</h1>
+            <p><b>@Model.description</b></p> 
+           <p></p>
+        </div>
+
+    
+    </div>
+</body>
+

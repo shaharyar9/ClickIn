@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ClickInFinal.Models
+
+@model IEnumerable<message>
+    
+    <body class="navbar-default" style="background: repeat; background-image: url(/Content/img6.jpg)">   
+   <br />
+    
+    <div class="col-lg-8" style="border:solid;background-color:white;margin-left:2%"> 
+       <h1>Messages</h1>
+        @foreach(message m in Model)
+        {
+        <div class="col-lg-8" >          
+            <h1>@m.subject</h1>       
+                         
+        </div >
+         <div class="col-lg-4">             
+             <a href="/Client/viewMessage/@m.Id"><input type="submit" value="View" class="btn btn-lg btn-primary"/></a>           
+             <br />
+        </div>
+        }
+    
+    </div>
+     
+</body>
+

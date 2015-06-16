@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using ClickInFinal.Models
+@model IEnumerable<User>
+<body style="background: repeat; background-image: url(/Content/img6.jpg)">
+    <div class="col-lg-3"></div>
+    <h1 style="margin-left:20%;color:white">Your Fiends</h1>
+    <br />
+    <div class="col-lg-8">
+        @foreach (User u in Model)
+        {
+            <div class="col-lg-6">
+                <div class="col-lg-6">
+                    <img src="~/Content/@u.userId/@u.profile" height="150" width="150"/></div>
+                <div class="col-lg-4" style="color:white">
+                    <p ><a style="color:white" href="friendPicture?name=@u.userId">@u.fname @u.lname</a></p>
+                    <p>Lives in:@u.city,@u.country</p>
+                    <p>Email:@u.userId</p>
+                    <p>Date of Birth:@u.dob.ToString("d")</p>
+                    <br />
+                </div>
+                <br />
+            </div>
+       
+        }
+    </div>
+</body>

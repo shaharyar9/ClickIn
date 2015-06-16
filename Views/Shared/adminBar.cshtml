@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/mystyle.css" rel="stylesheet" />
+   
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/Content/hover-min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- MetisMenu CSS -->
+   
+<link href="~/Content/metisMenu.min.css" rel="stylesheet" />
+    <!-- Timeline CSS -->
+   
+<link href="~/Content/timeline.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    
+<link href="~/Content/sb-admin-2.css" rel="stylesheet" />
+    <!-- Morris Charts CSS -->
+    
+<link href="~/Content/morris.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <nav class="nav navbar-fixed-top navbar-inverse" role="navigation" style="background-color:white">
+        <div class="nav navbar-header " style="padding-left: 5%; padding-top: 0.5%">
+            <h1 style="color: black; font-family: Papyrus">ClickIn</h1>
+        </div>
+        <div class="pull-right" style="padding-right: 15px; padding-top: 1.5%">
+
+            <a href="/LogIn/logOut">
+                <input type="submit" class="btn btn-danger hvr-bounce-in" value="SIGN OUT" style="padding-top: 1.5%" /></a>
+        </div>
+        
+    </nav>
+    
+    <br />
+    <div  class="col-lg-2 navbar-default btn-link" style="background-color:white;margin-left:1%">
+        <br />   
+           
+                <p style="color: darkblue; font-family: Papyrus;margin-left:5%">Reporting Portal</p>         
+        
+       
+        
+
+        <ul class="nav navbar" >
+             <li>@Html.ActionLink("Home", "adIndex", null, new { @class = "hvr-bounce-to-right" })</li>
+            <li>@Html.ActionLink("Reported Pictures", "reportedPictres", null, new { @class = "hvr-bounce-to-right" })</li>
+            <li>@Html.ActionLink("Reported Post", "reportedPost", null, new { @class = "hvr-bounce-to-left" })</li>
+            <li>@Html.ActionLink("Reported Video", "reportedVideo", null, new { @class = "hvr-bounce-to-right" })</li>
+        </ul>
+        
+    </div>
+    
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")   
+   
+    
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/metisMenu.min.js"></script>
+    <script src="~/Scripts/raphael-min.js"></script>
+    <script src="~/Scripts/morris.min.js"></script>
+    <script src="~/Scripts/morris-data.js"></script>
+    <script src="~/Scripts/sb-admin-2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+     function deletePost(id) {
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                     var elem = "count_" + id;
+                     var fader = 
+                     $('#' + "div_" + id).fadeOut('slow');
+                     $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "deletePost?id=" + id, true);
+            xmlhttp.send();
+
+        }
+
+        function deletePicture(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                   
+                   
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "deletePicture?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function clearPost(id) {
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+                    var elem = "count_" + id;
+                    var fader =
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "clearPost?id=" + id, true);
+            xmlhttp.send();
+
+        }
+
+        function clearPicture(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+
+
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "clearPicture?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function clearvid(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+
+
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "clearVideo?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        function deletevid(id) {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                var xmlhttp = new XMLHttpRequest();
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status < 299) {
+
+
+                    $('#' + "div_" + id).fadeOut('slow');
+                    $('#' + "div1_" + id).fadeOut('slow');
+
+                }
+
+            }
+            xmlhttp.open("POST", "deleteVideo?id=" + id, true);
+            xmlhttp.send();
+        }
+
+        </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

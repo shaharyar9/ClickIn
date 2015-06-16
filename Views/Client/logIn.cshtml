@@ -1,0 +1,73 @@
+﻿@{
+   Layout="~/Views/Shared/logShare.cshtml";
+       
+}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SIGN IN</title>
+    
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />    
+    <link href="/Content/mystyle.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/Content/hover-min.css" rel="stylesheet" />
+    
+</head>
+    <body style=" background:no-repeat;background-image:url(/Content/city.png)">
+    
+    <nav class="nav navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="nav navbar-header" style="padding-left:45%;padding-top:0.5%">
+            <h1  style="color:white;font-family:Papyrus;padding-left:25px;text-align:center" >ClickIn</h1>
+            </div>        
+    </nav>
+    <hr />
+        <br />
+        <br />
+    <div class="col-lg-4"></div>
+    
+    <div class="col-lg-4" style="opacity:0.6;padding-top:3% ;color:black;background-color:antiquewhite;padding-right:0.5%" >
+
+       
+        <div class="col-lg-4" >
+            <br />
+             
+            <label>User Name</label>
+             <br />
+             <br />
+             <br />
+             <label>Password</label>
+            <br />
+            <br />
+           
+             
+        </div>
+         <div class="col-lg-6">
+             <form action="LogIn/validate" method="post">
+             <br />           
+              <input  style="border:solid;font-size:large" type="email" name="id" required="required" class="btn"/>
+            <br />
+             <br />
+              <input style="border:solid;font-size:large" type="password" name="pass" required="required" class="btn"/>
+            <br />
+             <br />  
+                 <div class="col-lg-6"></div>   
+                 <div class="right">
+                 <input type="submit" value="Sign In" class="btn btn-lg btn-primary hvr-bounce-in" style="border:solid;height:50px;width:250px"/>
+             </div> 
+                 <br />
+                 <br />         
+             </form>
+             
+              <h4 style="color:black;padding-left:2%">@ViewBag.logIn</h4>
+             
+        </div>
+        
+    
+    </div>
+</body>
+</html>

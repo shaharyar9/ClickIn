@@ -1,0 +1,98 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using ClickInFinal.Models
+@model IEnumerable<imageBo>
+<body class="btn-link navbar-default" style="background: repeat; background-image: url(/Content/img6.jpg)">
+    <div>
+    <div class="col-lg-8" style="margin-left:7.3%">
+       
+        <div class="col-lg-6 " style="background-color: white">
+            <div class="pull-right" style="padding-top: 1%">
+                 <a href="/Client/uploadVideo">
+                    <input type="submit" value="Upload Video" class="btn btn-warning hvr-bounce-in" /></a>
+                <a href="/Client/upload">
+                    <input type="submit" value="Upload Picture" class="btn btn-success hvr-bounce-in" /></a>
+            </div>
+            <br />
+            <br />
+            <div style="padding-top: 2%">
+                <form action="\Client\savePost" method="post">
+                    <textarea name="postData" rows="5" cols="55" placeholder="What's on your mind?"></textarea>
+                    <div class="col-lg-10 pull-right" style="padding-bottom: 2%">
+                        <a href="#" class="pull-right">
+                            <input type="submit" value="Post" class="btn btn-primary hvr-bounce-in" /></a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+        @foreach (imageBo i in Model)
+        {
+            <div class="col-lg-3"></div>
+            <div class="col-lg-8">
+                <br />
+                <div class="col-lg-6 navbar-default" style=" background-color: white">
+                    <div style="padding-top: 2%">
+                        <img src="/Content/@i.User/@i.ImgPath" height="50" width="50" class="img-circle"/>
+                        <a href="friendPicture?name=@i.User">@i.Fname @i.Lname</a>
+
+                    </div>
+
+                    <video width="400" height="300" controls>
+                        <source src=~/Content/@i.User/@i.ImageName >
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div style="padding-top: 2%">
+
+                        <a href="#">
+                            <p id="count_@i.Id">
+                                @i.Count Likes<p>
+                        </a>
+                        <div class="col-lg-7 pull-right">
+
+                            @if (i.YouLike.Equals(false))
+                            {           
+                                <input type="button" id="btn_@i.Id" value="Like"  class="btn btn-primary hvr-bounce-in" onclick="videolike(@i.Id)"/>
+                            }
+                            @{
+                           
+                                <input type="button" value="Share"  class="btn btn-success hvr-bounce-in" onclick="shareVideo(@i.Id)"/> 
+                                <input type="button" value="Report"  class="btn btn-danger hvr-bounce-in" onclick="reportVideo(@i.Id)"/>  
+                            }
+                        </div>
+                        <br />
+                        <br />
+                        <div>
+                            <div id="cmnt_@i.Id">
+                                @foreach (Comment c in i.CoomentLi)
+                                {
+                                    <img src="/Content/@c.Username/@c.PicPath" height="50" width="50"  class="img-circle"/>
+                                    <a href="friendPicture?name=@c.Username">@c.Fname @c.Lname</a>
+                                    <p style="color: black">@c.Comment1</p>
+                                    <br /> 
+                                }
+
+
+                            </div>
+                            <input type="text" id="txt_@i.Id" placeholder=" Comment on video" style="border:solid;height:50px;width:300px"/>
+                            <input type="button" value="Comment"  class="btn btn-primary hvr-bounce-in" onclick="videocomment(@i.Id)"/>
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        
+        
+        }
+    </div>
+
+</body>
+

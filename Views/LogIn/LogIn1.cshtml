@@ -1,0 +1,76 @@
+﻿@{
+   Layout="~/Views/Shared/logShare.cshtml";
+       
+}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SIGN IN</title>
+    
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />    
+    <link href="/Content/mystyle.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/Content/hover-min.css" rel="stylesheet" />
+    
+</head>
+    <body style="background:repeat; background-image: url(/Content/img6.jpg)">
+    
+   <nav class="nav navbar-fixed-top navbar-inverse " role="navigation" style="background-color:white">
+        <div class="nav navbar-header" style="padding-left:45%;padding-top:0.5%">
+            <h1  style="color:black;font-family:Papyrus;padding-left:25px;text-align:center" >ClickIn</h1>
+            </div>        
+    </nav>
+   
+        <br />
+        <br />
+    <div class="col-lg-4"></div>
+    
+    <div class="col-lg-4" style="padding-top:5% ;color:black;border:solid;padding-right:0.5%;background-color:white" >
+
+       <h1 style="color:blue;margin-left:7%">LogIn</h1>
+        <div class="col-lg-4" style="color:blue">
+            <br />             
+            <label >User Name</label>
+             <br />
+             <br />
+             <br />
+             <label>Password</label>
+            <br />
+            <br />          
+             
+        </div>
+         <div class="col-lg-6" style="color:black">
+             <form action="/LogIn/validate" method="post">
+             <br />           
+              <input  style="border:solid;font-size:large" type="email" name="id" required="required" class="btn"/>
+            <br />
+             <br />
+              <input style="border:solid;font-size:large" type="password" name="pass" required="required" class="btn"/>
+            <br />
+             <br />  
+                 <div class="col-lg-6"></div>   
+                 <div class="right">
+                 <input type="submit" value="Sign In" class="btn btn-lg btn-primary hvr-bounce-in" style="border:solid;height:50px;width:250px"/>
+             </div> 
+                 <br />
+                 <br />         
+             </form>
+            
+             <p style="color:red"> @ViewBag.logIn</p>
+        </div>
+        
+    
+    </div>
+
+         <footer class="navbar-fixed-bottom navbar-inverse">
+        <div style="text-align: center; color:wheat" class="navbar-inverse">
+            <p class="list-inline small">Design by  Shaharyar Tariq (Bitf12m043)</p>                  
+          </div>
+    </footer>
+</body>
+</html>

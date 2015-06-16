@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ClickInFinal.Models
+@model User
+<!DOCTYPE html>
+
+
+<body style="background: repeat; background-image: url(/Content/img6.jpg)" >
+   
+       
+    <div class="col-lg-2"></div>
+    
+    <div class="col-lg-8" style="padding-top:3% ;color:white;padding-right:0.5%" >
+         <h1 style="color:white">Setting</h1>
+       
+        <div class="col-lg-6" style="color:white">
+           <div class="col-lg-4" >
+            <br />             
+            <!--<label>First Name</label>-->
+            @Html.LabelFor(m=>m.fname,"First Name")
+             <br />
+             <br />
+             <br />
+             @Html.LabelFor(m=>m.lname,"Last Name")
+            <br />
+            <br />          
+            
+             <br />
+            @Html.LabelFor(m=>m.password,"Password")
+            <br />
+            <br />
+             <br />
+             @Html.LabelFor(m=>m.dob,"Date of Birth")
+            <br />
+            <br />
+                         
+             @Html.LabelFor(m=>m.country,"Country")
+            <br />
+            <br />
+             <br />
+             @Html.LabelFor(m=>m.city,"City")
+        </div>
+       
+         <div class="col-lg-6" style="color:blue">
+             <!--<form action="/Client/register" method="post">-->
+             @using (Html.BeginForm("userUpdated", "Client", FormMethod.Post))
+             {
+             <br />
+            <!--<input style="opacity:0.6" type="text" name="fname" required="required" class="btn"/>-->
+                 @Html.TextBoxFor(m => m.fname, new { @class="btn",required="required",value=Model.fname})
+            <br />
+             <br />
+                 <br />
+              @Html.TextBoxFor(m => m.lname, new { @class="btn",required="required",value=Model.lname})
+            
+            <br />
+             <br />
+               @Html.TextBoxFor(m => m.password, new { @class="btn",required="required",type="password"})
+            <br />
+             <br />
+              @Html.TextBoxFor(m => m.dob, new { @class="btn",required="required",style="padding-left:15%",type="date",Model.dob})
+            <br />
+             <br />
+             @Html.TextBoxFor(m => m.country, new { @class="btn",required="required",value=Model.country})
+             <br />
+             <br />
+            @Html.TextBoxFor(m => m.city, new { @class="btn",required="required",value=Model.city})
+             <br />
+             <br />
+                 <div class="pull-right" >
+                 <input type="submit" value="Save Changes" class="btn btn-lg btn-success hvr-bounce-in"/>
+             </div>
+             }
+             
+        </div>
+</div>
+    
+    </div>
+</body>
+

@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using ClickInFinal.Models
+@model IEnumerable<postBo>
+
+<body class="btn-link navbar-default" style="background: repeat; background-image: url(/Content/img6.jpg)">
+
+     <div class="col-lg-8">
+        <div style="position: relative; top: 0">
+            @{
+                User u = (User)Session["user"];
+                <img src="/Content/@u.userId/@u.cover" height="400" width="800" style="position: relative; top: 0; left: 0" />
+                <img src="/Content/@u.userId/@u.profile"  style="position: absolute; top: 60%; left: 30px" height="150"; width="200"/>
+       
+           
+                <h1 style="position: absolute; top: 80%; left: 30%; color: white">@u.fname @u.lname</h1>
+            }
+            <div>
+                <a href="\Client\changeProfile" style="position: absolute; top: 90%; left: 5%" class="hvr-bounce-to-left">Change Picture</a>
+            </div>
+
+
+            <div>
+                <a href="\Client\changeCover" style="position: absolute; top: 90%; left: 80%" class="hvr-bounce-to-left">Change Cover</a>
+            </div>
+        </div>
+
+        <ul class=" nav navbar-nav navbar navbar-inverse" style="background-color:white">
+           
+            <li>@Html.ActionLink("Picture", "profile", null, new { @class = "hvr-bounce-to-bottom" })</li>
+            <li>@Html.ActionLink("Posts", "Mypost", null, new { @class = "hvr-bounce-to-bottom" })</li>
+            <li>@Html.ActionLink("Video", "MyVideo", null, new { @class = "hvr-bounce-to-bottom" })</li> 
+        </ul>
+        <br />
+
+    </div>
+        
+
+  @foreach(postBo b in Model)
+  {
+   <div class="col-lg-3" id="div1_@b.Id"></div>   
+    
+    <div class="col-lg-8" id="div_@b.Id" style="margin-left:6%">
+         <br />
+        <div class="col-lg-6 " style="background-color:white">
+            <div  style="padding-top:2%"> 
+                <img src="/Content/@b.User/@b.Profile" height="50" width="50" class="img-circle"/>
+                   <a href="friendPicture?name=@b.User">@b.Fname @b.Lname</a>  
+                <input type="button" id="delete_@b.Id" value="DeletePost"  class="btn btn-danger hvr-bounce-in pull-right" onclick="deletePost(@b.Id)" />                     
+            </div>
+            <p>@b.Status </p>
+           <a href="#"><p id="post_@b.Id">@b.Count Likes</p></a> 
+            <div style="padding-top:2%;margin-right:35%" class="col-lg-7 pull-left">
+                
+                    
+                    @if(b.YouLike.Equals(false))
+                    {
+                    <div class="pull-left" style="padding-bottom:2%">                                       
+                        <input type="button" id="btn_@b.Id" value="Like"  class="btn btn-primary hvr-bounce-in" onclick= "postlike(@b.Id)"/>                                      
+                    </div>
+                    }              
+               
+            </div>
+            <br />
+            <br />
+            <div id="cmnt_@b.Id">
+                 @foreach(Comment c in b.Commentli)
+          {
+             <img src="/Content/@c.Username/@c.PicPath" height="50" width="50" class="img-circle"  />
+                       <a href="friendPicture?name=@c.Username">@c.Fname @c.Lname</a>
+                       <p style="color:black">@c.Comment1</p>
+                       <br /> 
+          }            
+            </div>
+            <div >                  
+                          
+                <input type="text" id="txt_@b.Id" placeholder="Comment on post" style="border:solid;height:50px;width:300px"/>
+                <input type="button" value="Comment"  class="btn btn-primary hvr-bounce-in" onclick="postComment(@b.Id)"/>
+                    <br />
+                    <br />
+                    </div>
+        </div>
+    </div>
+  
+  }
+
+     
+</body>
+
