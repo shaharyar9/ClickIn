@@ -78,19 +78,19 @@
             
             <!--<input style="opacity:0.6" type="text" name="fname" required="required" class="btn"/>-->
                  
-                 @Html.TextBoxFor(m => m.fname, new { @class="btn",style="border:solid"})                 
+                 @Html.TextBoxFor(m => m.fname, new { @class="btn",style="border:solid;color:darkblue"})                 
                  @Html.ValidationMessageFor(m => m.fname)
                      
             <br />
              <br />
                  
-              @Html.TextBoxFor(m => m.lname, new { @class="btn",style="border:solid"})
+              @Html.TextBoxFor(m => m.lname, new {@class="btn",style="border:solid;color:darkblue"})
                  @Html.ValidationMessageFor(m=>m.lname)
                  
             <br />
              <br />
                  
-               @Html.TextBoxFor(m => m.userId, new { @class="btn",style="border:solid",type="email",id="uId"})
+               @Html.TextBoxFor(m => m.userId, new {@class="btn",style="border:solid;color:darkblue",type="email"})
                  @Html.ValidationMessageFor(m=>m.userId)
                    
               <div class="col-lg-6 pull-right">                  
@@ -102,30 +102,31 @@
            <br />
                  <br />
                 
-               @Html.TextBoxFor(m => m.password, new { @class="btn",style="border:solid",type="password"})
+               @Html.TextBoxFor(m => m.password, new { @class="btn",style="border:solid;color:darkblue",type="password"})
                    @Html.ValidationMessageFor(m=>m.password)
                    
             <br />
              <br />
                 
-              @Html.TextBoxFor(m => m.dob, new { @class="btn",style="padding-left:5%;border:solid",type="date"})
+              @Html.TextBoxFor(m => m.dob, new {@class="btn",style="padding-left:5%;border:solid;color:darkblue",type="date"})
                    @Html.ValidationMessageFor(m=>m.dob)
                      
             <br />
              <br />
                 
-             @Html.TextBoxFor(m => m.country, new { @class="btn",style="border:solid"})
+             @Html.TextBoxFor(m => m.country, new { @class="btn",style="border:solid;color:darkblue"})
                    @Html.ValidationMessageFor(m=>m.country)
                     
              <br />
              <br />
                  
-            @Html.TextBoxFor(m => m.city, new { @class="btn",style="border:solid"})
+            @Html.TextBoxFor(m => m.city, new { @class="btn",style="border:solid:color:darkblue"})
                    @Html.ValidationMessageFor(m=>m.city)
              <br />
              <br />
                  <div >
                  <input  type="submit" value="Register" class="btn btn-lg btn-success hvr-bounce-in"/>
+                     <p>@ViewBag.mess</p>
              </div>
              }
          <!-- </form>-->
