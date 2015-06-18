@@ -10,8 +10,8 @@
     <div style="position: relative; top: 0">
          @{
              User u = (User)ViewBag.host;
-        <img src="/Content/@u.userId/@u.cover" height="400" width="800" style="position: relative; top: 0; left: 0" />
-        <img src="/Content/@u.userId/@u.profile"  style="position: absolute; top: 60%; left:30px" height="150" width="200"/>
+        <img src="/Content/images/@u.cover" height="400" width="800" style="position: relative; top: 0; left: 0" />
+        <img src="/Content/images/@u.profile"  style="position: absolute; top: 60%; left:30px" height="150" width="200"/>
        
            
          <h1 style="position: absolute; top: 80%; left: 35%;color:white">@u.fname @u.lname</h1>
@@ -51,12 +51,12 @@
             <br />
             <div class="col-lg-6" style="background-color: white">
                 <div style="padding-top: 2%">
-                    <img src="/Content/@b.User/@b.ImgPath" height="30" class="img-circle"/>
+                    <img src="/Content/images/@b.ImgPath" height="50" width="50" class="img-circle"/>
                     <a href="#" class="">@b.Fname @b.Lname</a>
                     <input type="button" value="Report"  class="btn btn-danger hvr-bounce-in pull-right" onclick="reportPicture(@b.Id)"/>
                 </div>
                 <video width="400" height="300" controls>
-                    <source src=~/Content/@b.User/@b.ImageName >
+                    <source src=~/Content/video/@b.ImageName >
                     Your browser does not support the video tag.
                 </video>
                 <div style="padding-top: 2%">
@@ -83,7 +83,7 @@
                         <div id="cmnt_@b.Id">
                             @foreach (Comment c in b.CoomentLi)
                             {
-                                <img src="/Content/@c.Username/@c.PicPath" height="50" width="50" class="img-circle"  />
+                                <img src="/Content/images/@c.PicPath" height="50" width="50" class="img-circle"  />
                                 <a href="#">@c.Fname @c.Lname</a>
                                 <p style="color: black">@c.Comment1</p>
                                 <br /> 

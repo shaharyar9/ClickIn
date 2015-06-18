@@ -38,7 +38,7 @@
          <br />
         <div class="col-lg-6" style="background-color:white">
             <div  style="padding-top:2%"> 
-                <img src="/Content/@i.User/@i.Profile" height="50" width="50" class="img-circle"/>
+                <img src="/Content/images/@i.Profile" height="50" width="50" class="img-circle"/>
                     <a href="friendPicture?name=@i.User">@i.Fname @i.Lname</a>     
                 <input type="button" id="report_@i.Id" value="Report"  class="btn btn-danger hvr-bounce-in pull-right" onclick= "reportPost(@i.Id)" />         
             </div>
@@ -60,7 +60,7 @@
             <div id="cmnt_@i.Id">
                  @foreach(Comment c in i.Commentli)
           {
-             <img src="/Content/@c.Username/@c.PicPath" height="50" width="50" class="img-circle"  />
+             <img src="/Content/images/@c.PicPath" height="50" width="50" class="img-circle"  />
                        <a href="friendPicture?name=@c.Username">@c.Fname @c.Lname</a>
                        <p style="color:black">@c.Comment1</p>
                        <br /> 

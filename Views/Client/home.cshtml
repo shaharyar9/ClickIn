@@ -38,12 +38,12 @@
             <br />
             <div class="col-lg-6 " style="background-color:white">
                 <div style="padding-top: 2%">
-                    <img src="/Content/@i.User/@i.ImgPath" height="50" width="50" class="img-circle"/>
+                    <img src="/Content/images/@i.ImgPath" height="50" width="50" class="img-circle"/>
                     <a href="friendPicture?name=@i.User">@i.Fname @i.Lname</a>
 
                 </div>
 
-                <img src="/Content/@i.User/@i.ImageName" height="300"  style="padding-top:2%;max-width:95%" data-toggle="modal" data-target="#@i.Id"/>
+                <img src="/Content/images/@i.ImageName" height="300"  style="padding-top:2%;max-width:95%" data-toggle="modal" data-target="#@i.Id"/>
 
                 <div style="padding-top: 2%">
 
@@ -69,7 +69,7 @@
                         <div id="cmnt_@i.Id">
                             @foreach (Comment c in i.CoomentLi)
                             {
-                                <img src="/Content/@c.Username/@c.PicPath" height="50" width="50"  class="img-circle"/>
+                                <img src="/Content/images/@c.PicPath" height="50" width="50"  class="img-circle"/>
                                 <a href="friendPicture?name=@c.Username">@c.Fname @c.Lname</a>
                                 <p style="color: black">@c.Comment1</p>
                                 <br /> 
